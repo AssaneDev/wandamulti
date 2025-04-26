@@ -33,7 +33,7 @@
                                 <div class="d-flex align-items-start mt-3 mt-sm-0">
                                     <div class="flex-shrink-0">
                                         <div class="avatar-xl me-3">
-                                            <img src=" {{ (!empty($profileData->photo)) ? url('upload/admin_image'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="" class="img-fluid rounded-circle d-block">
+                                            <img src=" {{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="" class="img-fluid rounded-circle d-block">
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -99,7 +99,7 @@
                                     <input class="form-control" name="photo" type="file" value="" id="image">
                                 </div>
                                 <div class="mb-3">
-                                    <img id="showImage" src=" {{ (!empty($profileData->photo)) ? url('upload/admin_image'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="" class="rounded-circle p-1 bg-primary" width="110" >
+                                    <img id="showImage" src=" {{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="" class="rounded-circle p-1 bg-primary" width="110" >
                                 </div>
 
                                 <div class="mt-4">

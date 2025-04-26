@@ -135,7 +135,58 @@ class AdminController extends Controller
             }
         }
         $data->save();
-        return redirect()->back();
-       
+        $notification = array(
+            'message' => 'Profile Mise à jour avec success',
+            'alert-type'=> 'success'
+        );
+        return redirect()->back()->with($notification);
      }
+     // End Methode
+     private function deleteOldImage(string  $oldPhotoPath): void{
+        $fullPath = public_path('upload/admin_images/'.$oldPhotoPath);
+
+        if (file_exists($fullPath)) {
+            unlink($fullPath);
+        }
+     }
+     //End private methode
+
+     public function adminChangePassword(){
+        $id = Auth::guard('admin')->id();
+        $profileData = Admin::find($id);
+        return view('admin.admin_change_password',compact('profileData'));
+      }
+  
+       //End Methode
+
+       public function AdminPasswordUpdate(Request $request){
+
+        $admin = Auth::guard('admin')->user();
+        $request->validate(
+            [
+                'old_password' => 'required',
+                'new_password' => 'required|confirmed'
+            ]
+            );
+
+            if(!Hash::check($request->old_password,$admin->password)){
+                $notification = array(
+                    'message' => 'Ancien mot de passe ne corresponds pas',
+                    'alert-type'=> 'error'
+                );
+                return back()->with($notification);
+            }
+
+            /// Mise a jour du nouveau mot de pass
+            Admin::whereId($admin->id)->update([
+                'password' => Hash::make($request->new_password)
+            ]);
+
+            $notification = array(
+                'message' => 'Mot de passe changer avec success',
+                'alert-type'=> 'success'
+            );
+            return back()->with($notification);
+
+       }
 }
