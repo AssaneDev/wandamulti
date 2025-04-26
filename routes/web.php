@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Route::get('/dashboard', function () {
@@ -40,6 +40,8 @@ Route::post('/admin/password_submit', [AdminController::class, 'AdminPasswordSub
 Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminResetPasswordSubmit'])->name('admin.reset_password_submit');
 
 Route::get('admin/reset-password/{token}/{email}', [AdminController::class, 'AdminResetPassword']);
+
+
 
 
 

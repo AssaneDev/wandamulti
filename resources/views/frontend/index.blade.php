@@ -22,7 +22,7 @@
                         </h1>
 
                         <div class="hero-image-box d-md-none text-center wow fadeInRight" data-wow-delay="1.3s">
-                            <img src="assets/img/hero/Capture.JPG" alt="">
+                            <img src=" {{asset('frontend/assets/img/hero/Capture.JPG')}} " alt="">
                         </div>
 
                         <p class="lead wow fadeInLeft" data-wow-delay="1.4s">Je m'appelle Wanda Costantini,
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-md-6 d-none d-md-block">
                     <div class="hero-image-box text-center wow fadeInRight" data-wow-delay="1.5s">
-                        <img src="assets/img/hero/Capture.JPG" alt="">
+                        <img src=" {{asset('frontend/assets/img/hero/Capture.JPG')}} " alt="">
                     </div>
                 </div>
             </div>
@@ -294,7 +294,7 @@
     <!-- start: Portfolio Popup -->
     <div id="portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide">
         <div class="popup_modal_img">
-            <img src="./assets/img/portfolio/modal-img.jpg" alt="">
+            <img src=" {{asset('frontend/assets/img/portfolio/modal-img.jpg')}} " alt="">
         </div>
 
         <div class="popup_modal_content">

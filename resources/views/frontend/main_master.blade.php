@@ -11,22 +11,22 @@
     <title>Wanda Multi</title>
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" href=" {{asset('backend/assets/img/favicon.png')}}" />
-    <link rel="shortcut icon" type=" { image/png" href="{asset('backend/assets/img/favicon.png')}}" />
+    <link rel="apple-touch-icon" href=" {{asset('frontend/assets/img/favicon.png')}}" />
+    <link rel="shortcut icon" type=" { image/png" href="{asset('frontend/assets/img/favicon.png')}}" />
 
     <!-- CSS here -->
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/animate.min.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/bootstrap.min.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/font-awesome-pro.min.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/flaticon_gerold.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/nice-select.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/backToTop.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/owl.carousel.min.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/odometer-theme-default.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/magnific-popup.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/animate.min.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/bootstrap.min.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/font-awesome-pro.min.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/flaticon_gerold.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/nice-select.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/backToTop.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/owl.carousel.min.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/odometer-theme-default.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/magnific-popup.css')}} ">
 
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/main.css')}} ">
-    <link rel="stylesheet" href=" {{asset('backend/assets/css/responsive.css')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/main.css ')}} ">
+    <link rel="stylesheet" href=" {{asset('frontend/assets/css/responsive.css ')}} ">
 </head>
 
 <body>
@@ -159,7 +159,7 @@
     </header>
     <!-- HEADER END -->
 
-    @yield('frontend.main_master')
+    @yield('main')
 
     <!-- FOOTER AREA START -->
     <footer class="tj-footer-area">
@@ -167,7 +167,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="footer-logo-box">
-                        <a href="#"><img src=" {{asset('frontend/')}} assets/img/logo/logo.png" alt=""></a>
+                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " alt=""></a>
                     </div>
                     <div class="footer-menu">
                         <nav>
