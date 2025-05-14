@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Section\SectionController;
+use App\Http\Controllers\Section\PojetController;
+
+
 
 
 // Route::get('/', function () {
@@ -31,6 +35,21 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
 
 
+    Route::get('/admin/section1', [SectionController::class, 'SectionUn'])->name('section_1');
+    Route::post('/admin/section01/update', [SectionController::class, 'SectionUnUpdate'])->name('SectionUn.Update');
+
+    Route::get('/admin/section2', [SectionController::class, 'SectionDeux'])->name('section_2');
+    Route::get('/admin/section2/create', [SectionController::class, 'SectionDeuxCreate'])->name('SectionDeux.create');
+    Route::post('/admin/section02/store', [SectionController::class, 'SectionDeuxStore'])->name('SectionDeux.Store'); 
+    Route::post('/admin/section02/updatesec2', [SectionController::class, 'SectionDeuxUpdate'])->name('SectionDeux.Update');
+    Route::get('/admin/section2/deleteService/{id}', [SectionController::class, 'DeleteService'])->name('delete.service');
+
+
+    Route::get('/admin/projet', [PojetController::class, 'SectionProjet'])->name('section.projet');  
+    Route::get('/admin/projet/create', [PojetController::class, 'SectionProjetCreate'])->name('SectionProjet.create');
+    Route::post('/admin/projet/store', [PojetController::class, 'SectionProjetStore'])->name('SectionProjet.Store'); 
+
+
 });
 
 
@@ -43,6 +62,29 @@ Route::post('/admin/password_submit', [AdminController::class, 'AdminPasswordSub
 Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminResetPasswordSubmit'])->name('admin.reset_password_submit');
 
 Route::get('admin/reset-password/{token}/{email}', [AdminController::class, 'AdminResetPassword']);
+
+
+
+
+
+
+
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
+
+Route::get('/test-image', function () {
+    $manager = new ImageManager(new Driver());
+    $image = $manager->read(public_path('/home/ghost-code/Images/joal2.jpg'));
+    $image->resize(300, 300)->toJpeg()->save(public_path('resized.jpg'));
+    return 'Image redimensionnée avec succès';
+});
+
+Route::get('/php-info', function () {
+   return view('admin.php_info');
+});
+
+
+
 
 
 

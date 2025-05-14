@@ -18,20 +18,28 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="grid"></i>
-                        <span data-key="t-apps">Apps</span>
+                        <span data-key="t-apps">Acceuil</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="apps-calendar.html">
-                                <span data-key="t-calendar">Calendar</span>
+                            <a href="{{route('section_1')}}">
+                                <span data-key="t-calendar">Section 1</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="apps-chat.html">
-                                <span data-key="t-chat">Chat</span>
+                            <a href="{{route('section_2')}}">
+                                <span data-key="t-calendar">Services</span>
                             </a>
                         </li>
+
+
+                          <li>
+                            <a href="{{route('section.projet')}}">
+                                <span data-key="t-calendar">Projets</span>
+                            </a>
+                        </li>
+
 
                        
                        

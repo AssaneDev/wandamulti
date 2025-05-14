@@ -95,7 +95,13 @@
             <script src=" {{asset('backend/assets/js/app.js')}} "></script>
 
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+           
+            {{-- text redacteur --}}
+               <!-- ckeditor -->
+            <script src=" {{asset('backend/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}} "></script>
 
+            <!-- init js -->
+            <script src=" {{asset('backend/assets/js/pages/form-editor.init.js')}} "></script>
             <script>
              @if(Session::has('message'))
              var type = "{{ Session::get('alert-type','info') }}"

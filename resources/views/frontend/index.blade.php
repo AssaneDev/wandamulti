@@ -1,6 +1,11 @@
 @extends('frontend.main_master')
 @section('main')
 
+@php
+    $section = App\Models\SectionModel::find(1);
+    $section2 = App\Models\SectionModel2::all();
+    
+@endphp
 
 <main class="site-content" id="content">
     <!-- HERO SECTION START -->
@@ -16,22 +21,15 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="hero-content-box">
-                        <span class="hero-sub-title wow fadeInLeft" data-wow-delay="1.1s">Je suis Wanda
-                            Costantini</span>
-                        <h1 class="hero-title wow fadeInLeft" data-wow-delay="1.2s">Copyrighting +<br>Voix off
+                        <span class="hero-sub-title wow fadeInLeft" data-wow-delay="1.1s"> {{$section->titre1}} </span>
+                        <h1 class="hero-title wow fadeInLeft" data-wow-delay="1.2s">{{$section->titre2}}
                         </h1>
 
                         <div class="hero-image-box d-md-none text-center wow fadeInRight" data-wow-delay="1.3s">
                             <img src=" {{asset('frontend/assets/img/hero/Capture.JPG')}} " alt="">
                         </div>
 
-                        <p class="lead wow fadeInLeft" data-wow-delay="1.4s">Je m'appelle Wanda Costantini,
-                            passionnée de mots et de voix depuis toujours. Mon univers ? L’écriture percutante et
-                            l’interprétation vocale.
-                            Après plusieurs années d'expérience, j’accompagne aujourd’hui les marques, les
-                            entrepreneurs et les créateurs de contenu à transmettre leurs messages avec
-                            authenticité, émotion et impact.
-                            Mon credo : trouver le bon mot, la bonne tonalité, et la vraie intention.</p>
+                        <p class="lead wow fadeInLeft" data-wow-delay="1.4s"> {!!$section->description!!}  </p>
                         <div class="button-box d-flex flex-wrap align-items-center">
                             <a href="#" class="btn tj-btn-secondary wow fadeInLeft"
                                 data-wow-delay="1.5s">Télécharger Mon Cv</a>
@@ -58,6 +56,7 @@
     <!-- SERVICES SECTION START -->
     <section class="services-section" id="services-section">
         <div class="container">
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-header text-center">
@@ -73,37 +72,23 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="services-widget position-relative">
-                        <div class="service-item current d-flex flex-wrap align-items-center wow fadeInUp"
+
+                        @foreach ($section2 as $item)
+                            <div class="service-item current d-flex flex-wrap align-items-center wow fadeInUp"
                             data-wow-delay=".5s">
                             <div class="left-box d-flex flex-wrap align-items-center">
                                 <span class="number">01</span>
-                                <h3 class="service-title">Copyrighting</h3>
+                                <h3 class="service-title">{{$item->nom_service}}</h3>
                             </div>
                             <div class="right-box">
-                                <p>Le copywriting, c’est bien plus que de jolies phrases. C’est l’art de trouver les
-                                    bons mots pour attirer l’attention, susciter l’émotion et provoquer l’action.
-                                    Je t’aide à raconter ton histoire, à valoriser tes offres et à créer du lien
-                                    avec ton audience.</p>
+                                <p>{{$item->petite_desc_service}}</p>
                             </div>
                             <i class="flaticon-up-right-arrow"></i>
                             <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
                         </div>
-                        <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp"
-                            data-wow-delay=".6s">
-                            <div class="left-box d-flex flex-wrap align-items-center">
-                                <span class="number">02</span>
-                                <h3 class="service-title">Voix Off</h3>
-                            </div>
-                            <div class="right-box">
-                                <p>Ta marque a une histoire. Je lui donne une voix.
-                                    Que ce soit pour une vidéo, un podcast, un spot publicitaire ou un livre audio,
-                                    je mets ma voix à ton service pour porter ton message avec émotion, justesse et
-                                    professionnalisme.</p>
-                            </div>
-                            <i class="flaticon-up-right-arrow"></i>
-                            <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
-                        </div>
-
+                       
+                        @endforeach
+                        
 
                         <div class="active-bg wow fadeInUp" data-wow-delay=".5s"></div>
                     </div>
@@ -118,56 +103,15 @@
         <div class="popup_modal_img">
             <img src="./assets/img/services/modal-img.jpg" alt="">
         </div>
-
-        <div class="popup_modal_content">
+       
+        @foreach ($section2 as $item)
+             <div class="popup_modal_content">
             <div class="service_details">
                 <div class="row">
                     <div class="col-lg-7 col-xl-8">
                         <div class="service_details_content">
                             <div class="service_info">
-                                <h6 class="subtitle">Copyright</h6>
-                                <h2 class="title">🎯 Ce que je propose</h2>
-                                <div class="desc">
-                                    <p>J’écris pour celles et ceux qui ont un message à faire passer — mais qui
-                                        veulent plus que de simples mots.
-                                        Je crée des textes qui parlent juste, vrai, et qui laissent une empreinte.
-
-                                        Que ce soit pour une cérémonie, un discours, une page web ou un manifeste de
-                                        marque, je tisse des mots qui ont du sens, pensés pour ta voix, ton
-                                        histoire, ton audience</p>
-
-                                    <p>🔍 À qui s’adresse ce service ?<br>
-                                        Entrepreneurs, créateurs, coachs qui veulent une présence authentique en
-                                        ligne
-
-                                        Futurs mariés, proches ou officiants d’une cérémonie laïque ou intime
-
-                                        Porteurs de projets à impact, souhaitant un discours marquant
-
-                                        Marques ou indépendants en quête d’un ton aligné à leurs valeurs</p>
-
-
-                                </div>
-
-                                <h3 class="title">Mon approche – sur-mesure, sensible et structurée</h3>
-
-                                <ul>
-                                    <li>Écoute & brief</li>
-                                    <li>Inspiration & collecte</li>
-                                    <li>Écriture intuitive & structurée</li>
-                                    <li>Affinage & ajustements</li>
-                                    <li>Livraison finale</li>
-
-                                </ul>
-
-                                <div class="desc">
-                                    <p>🎁 Options possibles <br>
-                                        Lecture/voix off par mes soins
-
-                                        Version imprimable ou stylisée (pour cérémonie, print, etc.)
-
-                                        Conseils pour mise en page, publication ou usage sur le web</p>
-                                </div>
+                               {!! $item->long_desc_service !!}
                             </div>
                         </div>
                     </div>
@@ -203,6 +147,8 @@
                 </div>
             </div>
         </div>
+        @endforeach
+       
     </div>
     <!-- end: Service Popup -->
 
