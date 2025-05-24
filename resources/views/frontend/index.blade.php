@@ -66,7 +66,7 @@
     <!-- end: Service Popup -->
 
     <!-- PORTFOLIO SECTION START -->
-     @include('frontend.home.portfolio')
+     @include('frontend.home.portofolio')
     <!-- PORTFOLIO SECTION END -->
 
     <!-- start: Portfolio Popup -->
