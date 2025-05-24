@@ -10,7 +10,7 @@
     <meta name="description" content="" />
 
     <!-- Site Title -->
-    <title>Wanda Multi</title>
+    <title>Wanda Multie</title>
 
     <!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href=" {{asset('frontend/assets/img/favicon.png')}}" />
