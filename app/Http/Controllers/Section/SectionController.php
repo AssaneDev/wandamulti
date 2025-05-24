@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SectionModel;
 use App\Models\SectionModel2;
+use App\Models\DescriptionService;
+use Hamcrest\Description;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -27,6 +29,9 @@ class SectionController extends Controller
         $sectionun->titre1 = $request->titre1;
         $sectionun->titre2 = $request->titre2;
         $sectionun->description = $request->description;
+        $sectionun->lien_whatsapp = $request->lien_whatsapp;
+        $sectionun->lien_facebook = $request->lien_facebook;
+        $sectionun->lien_linkedin = $request->lien_linkedin;
     
         $oldPhotoPath = $sectionun->photo;
     
@@ -88,16 +93,18 @@ class SectionController extends Controller
 
          public function SectionDeuxCreate(){
             $dataSection2 = SectionModel2::find(1);
-           
+            
             return view('admin.sections.section_2_create',compact('dataSection2'));
+           
+          
          }
 
          //End Methode
 
          public function SectionDeuxUpdate(Request $request)
          {
-            
-            $sectiondeux = SectionModel2::find(1);
+            $id = $request->id;  
+            $sectiondeux = SectionModel2::find($id);
             $sectiondeux->titre_section = $request->titresec2;
             $sectiondeux->desc_section = $request->dec_section2;
           
@@ -116,13 +123,17 @@ class SectionController extends Controller
          //End Methode
 
          public function SectionDeuxStore(Request $request){
-          SectionModel2::insert([
+          $id_description = SectionModel2::insertGetId([
             'nom_service'=>$request->nomservice,
             'petite_desc_service'=>$request->courtedesc,
             'long_desc_service'=>$request->longdescription,
         
 
           ]);
+            $description_service = new DescriptionService();
+            $description_service->id_service = $id_description;
+            $description_service->description = $request->longdescription;
+            $description_service->save();
           // Notification de succès
             return redirect()->back()->with([
                 'message' => 'Service ajouter avec success',
@@ -136,6 +147,10 @@ class SectionController extends Controller
          public function DeleteService($id) {
         $item = SectionModel2::findOrFail($id);
         $img = $item->image_cap;
+        $description_service = DescriptionService::where('id_service', $id)->first();
+        if ($description_service) {
+            $description_service->delete();
+        }
       
         SectionModel2::findOrFail($id)->delete();
      
@@ -146,6 +161,32 @@ class SectionController extends Controller
         
         return  redirect()->back()->with($notification);
     } 
+
+    public function EditService($id) {
+        $item = SectionModel2::findOrFail($id);
+        $description_service = DescriptionService::where('id_service', $id)->first();
+        return view('admin.sections.edit_service', compact('item', 'description_service'));
+    }
+    public function UpdateService(Request $request) {
+        $id= $request->id;
+        $item = SectionModel2::findOrFail($id);
+        $item->nom_service = $request->nomservice;
+        $item->petite_desc_service = $request->petitedescservice;
+        $item->long_desc_service = $request->longdescservice;
+        $item->save();
+
+        // Mettre à jour la description du service
+        $description_service = DescriptionService::where('id_service', $id)->first();
+        if ($description_service) {
+            $description_service->description = $request->longdescservice;
+            $description_service->save();
+        }
+
+        return redirect()->back()->with([
+            'message' => 'Service mis à jour avec succès',
+            'alert-type' => 'success'
+        ]);
+    }
 
          
 

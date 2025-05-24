@@ -43,6 +43,10 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/section02/store', [SectionController::class, 'SectionDeuxStore'])->name('SectionDeux.Store'); 
     Route::post('/admin/section02/updatesec2', [SectionController::class, 'SectionDeuxUpdate'])->name('SectionDeux.Update');
     Route::get('/admin/section2/deleteService/{id}', [SectionController::class, 'DeleteService'])->name('delete.service');
+    Route::get('/admin/section2/editService/{id}', [SectionController::class, 'EditService'])->name('edit.service');
+    Route::post('/admin/section02/update', [SectionController::class, 'UpdateService'])->name('Service.Update'); 
+
+
 
 
     Route::get('/admin/projet', [PojetController::class, 'SectionProjet'])->name('section.projet');  
@@ -69,19 +73,57 @@ Route::get('admin/reset-password/{token}/{email}', [AdminController::class, 'Adm
 
 
 
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
 
-Route::get('/test-image', function () {
-    $manager = new ImageManager(new Driver());
-    $image = $manager->read(public_path('/home/ghost-code/Images/joal2.jpg'));
-    $image->resize(300, 300)->toJpeg()->save(public_path('resized.jpg'));
-    return 'Image redimensionnée avec succès';
-});
 
-Route::get('/php-info', function () {
-   return view('admin.php_info');
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Debug Image Intervention
+// use Intervention\Image\ImageManager;
+// use Intervention\Image\Drivers\Gd\Driver;
+
+// Route::get('/test-image', function () {
+//     $manager = new ImageManager(new Driver());
+//     $image = $manager->read(public_path('/home/ghost-code/Images/joal2.jpg'));
+//     $image->resize(300, 300)->toJpeg()->save(public_path('resized.jpg'));
+//     return 'Image redimensionnée avec succès';
+// });
+
+// Route::get('/php-info', function () {
+//    return view('admin.php_info');
+// });
 
 
 

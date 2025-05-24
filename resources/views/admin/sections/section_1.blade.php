@@ -37,6 +37,30 @@
                                         </div>
                                     </div>
 
+                                     <div class="col-xl-4 col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label>Liens Whatsapp</label>
+                                            <input type="text" name="lien_whatsapp" required data-pristine-required-message="Please Enter a username" class="form-control" value="{{$dataSection1->titre2}}"  />
+                                        </div>
+                                    </div>
+
+
+                                     <div class="col-xl-4 col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label>Liens Facebook</label>
+                                            <input type="text" name="lien_facebook" required data-pristine-required-message="Please Enter a username" class="form-control" value="{{$dataSection1->titre2}}"  />
+                                        </div>
+                                    </div>
+
+                                     <div class="col-xl-4 col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label>Liens Linkedin</label>
+                                            <input type="text" name="lien_linkedin" required data-pristine-required-message="Please Enter a username" class="form-control" value="{{$dataSection1->titre2}}"  />
+                                        </div>
+                                    </div>
+
+
+
                                     {{-- text editor --}}
                                               <!-- start page title -->
                         

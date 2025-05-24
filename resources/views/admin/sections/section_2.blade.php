@@ -103,8 +103,12 @@
                                   
 
                                                 <td>
+                                                    <a href="{{route('edit.service',$item->id)}}" class="btn btn-secondary waves-effect waves-light" > Modifier</a>
                                                     <a href="{{route('delete.service',$item->id)}}" class="btn btn-danger px-3 radius-30" id="delete"> Supprimer</a>
+
                                                 </td> 
+                                                
+                                                
                                                 
                                             </tr>
                                  @endforeach            

@@ -28,21 +28,14 @@ class PojetController extends Controller
     // End function SectionProjetCreate
   public function  SectionProjetStore(Request $request)
 {
-    $validatedData = $request->validate([
-        'nom_projet' => 'required',
-        'courtedesc' => 'required',
-        'longdescription' => 'required',
-        'image_cap' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'image_ban' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'audio' => 'nullable|mimes:mp3,wav,ogg|max:5120', // 5 Mo max
-    ]);
+   
 
     $manager = new ImageManager(new Driver());
 
     // Traitement image_cap
     $imgCapPath = null;
-    if ($request->hasFile('image_cap')) {
-        $image = $request->file('image_cap');
+    if ($request->hasFile('imagescap')) {
+        $image = $request->file('imagescap');
         $name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $manager->read($image)->resize(584, 500)->toJpeg(80)
             ->save(public_path('upload/image_cap/' . $name));
@@ -51,15 +44,25 @@ class PojetController extends Controller
 
     // Traitement image_ban
     $imgBanPath = null;
-    if ($request->hasFile('image_ban')) {
-        $image = $request->file('image_ban');
+    if ($request->hasFile('imagebanniere')) {
+        $image = $request->file('imagebanniere');
         $name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        $manager->read($image)->resize(584, 500)->toJpeg(80)
+        $manager->read($image)->resize(1028, 621)->toJpeg(80)
             ->save(public_path('upload/image_ban/' . $name));
         $imgBanPath = 'upload/image_ban/' . $name;
     }
 
     // Traitement audio
+    
+    $request->validate([
+        'nomprojet' => 'required|string|max:255',
+        'courtedesc' => 'required|string|max:255',
+        'longdescription' => 'required|string',
+        'lien' => 'nullable|url',
+        'imagescap' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 2 Mo
+        'imagebanniere' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 2 Mo
+        'audio' => 'nullable|mimes:mp3,wav,ogg|max:20480', // 20 Mo
+    ]);
     $audioPath = null;
     if ($request->hasFile('audio')) {
         $file = $request->file('audio');
@@ -70,7 +73,7 @@ class PojetController extends Controller
 
     // Insertion
     ProjetModel::create([
-        'nom_service' => $request->nom_projet,
+        'nom_service' => $request->nomprojet,
         'petite_desc_service' => $request->courtedesc,
         'long_desc_service' => $request->longdescription,
         'video_youtube' => $request->lien,
@@ -80,6 +83,9 @@ class PojetController extends Controller
         'created_at' => now(),
     ]);
 
-    return redirect()->back()->with('success', 'Projet créé avec succès.');
+    return redirect()->back()->with([
+            'message' => 'Service mis à jour avec succès',
+            'alert-type' => 'success'
+        ]);
 }
 }

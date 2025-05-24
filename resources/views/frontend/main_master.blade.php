@@ -1,5 +1,7 @@
+
+
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="fr">
 
 <head>
     <meta charset="utf-8" />
@@ -77,27 +79,31 @@
                         </a>
                     </div>
 
-                    <div class="header-info-list d-none d-md-inline-block">
+
+                    {{-- <div class="header-info-list d-none d-md-inline-block">
                         <ul class="ul-reset">
                             <li><a href="mailto:mail@gerolddesign.com">wanda@multi.com</a></li>
                         </ul>
-                    </div>
+                    </div> --}}
+
+                    <a href="{{$section->lien_whatsapp}}" class="btn tj-btn-secondary wow fadeInLeft"
+                                data-wow-delay="1.5s"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a>
 
                     <div class="header-menu">
                         <nav>
                             <ul>
                                 <li><a href="#services-section">Services</a></li>
                                 <li><a href="#works-section">Travails</a></li>
-                                <li><a href="#skills-section">Offres</a></li>
+                                {{-- <li><a href="#skills-section">Offres</a></li> --}}
                                 <li><a href="#testimonials-section">Temoignages</a></li>
                                 <li><a href="#contact-section">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
 
-                    <div class="header-button">
+                    {{-- <div class="header-button">
                         <a href="#" class="btn tj-btn-primary">Hire me!</a>
-                    </div>
+                    </div> --}}
 
                     <div class="menu-bar d-lg-none">
                         <button>
