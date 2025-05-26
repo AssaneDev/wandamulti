@@ -24,22 +24,24 @@
                         </div>
                     </div>
 
+                    @foreach ($projet as $item)
+
                     <div class="portfolio-box wow fadeInUp" data-wow-delay=".6s">
                         <div class="portfolio-sizer"></div>
                         <div class="gutter-sizer"></div>
                         <div class="portfolio-item branding">
                             <div class="image-box">
-                                <img src="assets/img/portfolio/2.jpg" alt="">
+                                <img src="{{$item->photo}}" alt="">
                             </div>
                             <div class="content-box">
-                                <h3 class="portfolio-title">À l’unisson </h3>
-                                <p>Paroles pour dire “oui” autrement.</p>
+                                <h3 class="portfolio-title">{{$item->nom_service}} </h3>
+                                <p>{{$item->nom_petite_desc_service}}</p>
                                 <i class="flaticon-up-right-arrow"></i>
                                 <button data-mfp-src="#portfolio-wrapper"
                                     class="portfolio-link modal-popup"></button>
                             </div>
                         </div>
-                        <div class="portfolio-item uxui">
+                        {{-- <div class="portfolio-item uxui">
                             <div class="image-box">
                                 <img src="assets/img/portfolio/1.jpg" alt="">
                             </div>
@@ -74,8 +76,9 @@
                                 <button data-mfp-src="#portfolio-wrapper4"
                                     class="portfolio-link modal-popup"></button>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

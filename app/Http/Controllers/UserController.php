@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\ProjetModel;
 use App\Models\SectionModel2;
 
 
@@ -11,7 +13,8 @@ class Usercontroller extends Controller
     //
     public function Index(){
          $section2 = SectionModel2::with('detail_service')->get();
-        return view('frontend.index', compact('section2'));
+         $projet = ProjetModel::with('detail_projet')->get();
+        return view('frontend.index', compact('section2','projet'));
     }
       
     

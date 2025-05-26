@@ -70,7 +70,74 @@
     <!-- PORTFOLIO SECTION END -->
 
     <!-- start: Portfolio Popup -->
-   {{-- @include('frontend.home.portfolio_popup') --}}
+    @foreach ($projet as $item)
+    <div id="portfolio-wrapper-{{$item->id}}" class="popup_content_area zoom-anim-dialog mfp-hide">
+        <div class="popup_modal_img">
+            <img src=" {{asset('frontend/assets/img/portfolio/modal-img.jpg')}} " alt="">
+        </div>
+
+        <div class="popup_modal_content">
+            <div class="portfolio_info">
+                <div class="portfolio_info_text">
+                    <h2 class="title">{{$item->nom_service}}</h2>
+                    <div class="desc">
+                        <p>{{$item->petite_desc_service}}</p>
+                    </div>
+                    <a href="#" class="btn tj-btn-primary">Voir Détail <i class="fal fa-arrow-right"></i></a>
+                </div>
+                <!-- <div class="portfolio_info_items">
+                    <div class="info_item">
+                        <div class="key">Category</div>
+                        <div class="value">Web Design</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="key">Client</div>
+                        <div class="value">Artboard Studio</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="key">Start Date</div>
+                        <div class="value">August 20, 2023</div>
+                    </div>
+                    <div class="info_item">
+                        <div class="key">Designer</div>
+                        <div class="value"><a href="#">ThemeJunction</a></div>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="portfolio_gallery owl-carousel">
+                <div class="gallery_item">
+                    <img src="./assets/img/portfolio-gallery/p-gallery-1.jpg" alt="">
+                </div>
+                <div class="gallery_item">
+                    <img src="./assets/img/portfolio-gallery/p-gallery-2.jpg" alt="">
+                </div>
+                <div class="gallery_item">
+                    <img src="./assets/img/portfolio-gallery/p-gallery-3.jpg" alt="">
+                </div>
+                <div class="gallery_item">
+                    <img src="./assets/img/portfolio-gallery/p-gallery-4.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="portfolio_description">
+                <h2 class="title">{{$item->nom_service}}</h2>
+                <div class="desc">
+                    {{-- <p>Écriture d’un texte central pour une cérémonie de mariage laïque. Ce texte pose le ton de
+                        l’engagement : poétique, sincère, profond — sans être cliché.Ce texte, pensé comme une
+                        déclaration universelle, donne à la cérémonie une dimension intime, authentique, et
+                        profondément humaine.</p> --}}
+                       {!! $item->detail_service->description ?? 'Aucune description disponible.' !!}
+
+
+
+                </div>
+            </div>
+
+          
+        </div>
+    </div>
+    @endforeach
     <!-- end: Portfolio Popup -->
 
 

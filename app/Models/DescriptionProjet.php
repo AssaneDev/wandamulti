@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
-class ProjetModel extends Model
-{
-    //
-    use HasFactory;
+class DescriptionProjet extends Model
+{    use HasFactory;
     protected $guarded = [];
-     public function detail_projet()
+    public function projet()
     {
-        return $this->hasOne(DescriptionProjet::class, 'id_projet');
+        return $this->belongsTo(ProjetModel::class, 'id_projet');
     }
+    //
 }
