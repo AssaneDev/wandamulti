@@ -15,7 +15,7 @@
                         </h1>
 
                         <div class="hero-image-box d-md-none text-center wow fadeInRight" data-wow-delay="1.3s">
-                            <img src="{{$section->photo}}" alt="">
+                            <img src="{{asset($section->photo)}}" alt="">
                         </div>
 
                         <p class="lead wow fadeInLeft" data-wow-delay="1.4s"> {!!$section->description!!}  </p>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-md-6 d-none d-md-block">
                     <div class="hero-image-box text-center wow fadeInRight" data-wow-delay="1.5s">
-                        <img src="{{$section->photo}}" alt="">
+                        <img src="{{asset($section->photo)}}" alt="">
                     </div>
                 </div>
             </div>
