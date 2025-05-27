@@ -73,13 +73,14 @@
                                 authenticité, émotion et impact.
                                 Mon credo : trouver le bon mot, la bonne tonalité, et la vraie intention.</p>
                             <div class="button-box d-flex flex-wrap align-items-center">
-                                <a href="#" class="btn tj-btn-secondary wow fadeInLeft"
-                                    data-wow-delay="1.5s">Télécharger Mon Cv</a>
+                                {{-- <a href="#" class="btn tj-btn-secondary wow fadeInLeft"
+                                    data-wow-delay="1.5s">Télécharger Mon Cv</a> --}}
                                 <ul class="ul-reset social-icons wow fadeInLeft" data-wow-delay="1.6s">
-                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-basketball"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+                                     <ul class="ul-reset social-icons wow fadeInLeft" data-wow-delay="1.6s">
+                                <li><a href="{{$section->facebook}}"><i class="fa-brands fa-facebook"></i></a></li>
+                                <li><a href="{{$section->linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                
+                            </ul>
                                 </ul>
                             </div>
                         </div>

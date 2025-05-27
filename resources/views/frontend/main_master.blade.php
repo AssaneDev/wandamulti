@@ -130,7 +130,7 @@
 
                     <div class="header-info-list d-none d-md-inline-block">
                         <ul class="ul-reset">
-                            <li><a href="mailto:mail@gerolddesign.com">mail@gerolddesign.com</a></li>
+                            <li><a href="mailto:mail@gerolddesign.com">wanda@multivoies.com</a></li>
                         </ul>
                     </div>
 
@@ -148,7 +148,7 @@
                     </div>
 
                     <div class="header-button">
-                        <a href="#" class="btn tj-btn-primary">Hire me!</a>
+                        <a href="#" class="btn tj-btn-primary">Multivoies</a>
                     </div>
 
                     <div class="menu-bar d-lg-none">
