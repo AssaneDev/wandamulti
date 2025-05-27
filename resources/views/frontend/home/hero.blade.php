@@ -58,7 +58,7 @@
                         <div class="hero-content-box">
                             <span class="hero-sub-title wow fadeInLeft" data-wow-delay="1.1s">Je suis Wanda
                                 Costantini</span>
-                            <h1 class="hero-title wow fadeInLeft" data-wow-delay="1.2s">Copyrighting +<br>Voix off
+                            <h1 class="hero-title wow fadeInLeft" data-wow-delay="1.2s">Copywriting +<br>Voix off
                             </h1>
 
                             <div class="hero-image-box d-md-none text-center wow fadeInRight" data-wow-delay="1.3s">
