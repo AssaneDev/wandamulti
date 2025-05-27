@@ -76,17 +76,23 @@
                                             <tbody>
                                          
                                        
+                                                 @foreach ($datall as $key=>$item)       
                                             <tr>
 
-                                                <td></td>
-                                                <td></td>
+                                                <td>{{$item->nom_service}}</td>
+                                                <td>{!! Str::limit( $item->petite_desc_service ,50) !!}</td>
                                   
 
-                                                <td>
-                                                    <a href="" class="btn btn-danger px-3 radius-30" id="delete"> Supprimer</a>
-                                                </td> 
+                                                {{-- <td>
+                                                    <a href="{{route('edit.projet',$item->id)}}" class="btn btn-secondary waves-effect waves-light" > Modifier</a>
+                                                    <a href="{{route('delete.projet',$item->id)}}" class="btn btn-danger px-3 radius-30" id="delete"> Supprimer</a>
+
+                                                </td>  --}}
+                                                
+                                                
                                                 
                                             </tr>
+                                 @endforeach    
                                          
 
 

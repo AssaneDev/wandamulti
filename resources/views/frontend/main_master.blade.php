@@ -101,9 +101,9 @@
                         </nav>
                     </div>
 
-                    {{-- <div class="header-button">
-                        <a href="#" class="btn tj-btn-primary">Hire me!</a>
-                    </div> --}}
+                     <div class="header-button">
+                        <a href="#" class="btn tj-btn-primary">Multivoies</a>
+                    </div> 
 
                     <div class="menu-bar d-lg-none">
                         <button>

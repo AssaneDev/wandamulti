@@ -16,14 +16,16 @@ class PojetController extends Controller
 {
        public function SectionProjet()
     {
-        
-        return view('admin.sections.section_projet');
+        $datall = ProjetModel::all();
+        return view('admin.sections.section_projet',compact('datall'));
     }
 
     // End function SectionProjet
 
     public function SectionProjetCreate()
     {
+       
+        
         return view('admin.sections.section_projet_create');
     }
     // End function SectionProjetCreate
@@ -96,4 +98,10 @@ public function SectionProjetStore(Request $request)
         'alert-type' => 'success'
     ]);
 }
+// public function SectionProjetEdit($id)
+// {
+//     $data = ProjetModel::findOrFail($id);
+//     return view('admin.sections.section_projet_edit', compact('data'));
+// }
 }
+

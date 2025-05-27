@@ -52,6 +52,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/projet', [PojetController::class, 'SectionProjet'])->name('section.projet');  
     Route::get('/admin/projet/create', [PojetController::class, 'SectionProjetCreate'])->name('SectionProjet.create');
     Route::post('/admin/projet/store', [PojetController::class, 'SectionProjetStore'])->name('SectionProjet.Store'); 
+    Route::get('/admin/projet/editservice/{id}', [SectionController::class, 'EditProjet'])->name('edit.projet');
+
 
 
 });

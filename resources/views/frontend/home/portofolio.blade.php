@@ -35,7 +35,7 @@
                             </div>
                             <div class="content-box">
                                 <h3 class="portfolio-title">{{$item->nom_service}} </h3>
-                                <p>{{$item->nom_petite_desc_service}}</p>
+                                <p>{{$item->petite_desc_service}}</p>
                                 <i class="flaticon-up-right-arrow"></i>
                                 <button data-mfp-src="#portfolio-wrapper"
                                     class="portfolio-link modal-popup"></button>
