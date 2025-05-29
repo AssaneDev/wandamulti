@@ -23,7 +23,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
                             <a href="{{route('section_1')}}">
-                                <span data-key="t-calendar">Section 1</span>
+                                <span data-key="t-calendar">Qui je suis</span>
                             </a>
                         </li>
 
@@ -51,11 +51,11 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="users"></i>
-                        <span data-key="t-authentication">Authentication</span>
+                        <span data-key="t-authentication">WANDA-IA</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login.html" data-key="t-login">Login</a></li>
-                        <li><a href="auth-register.html" data-key="t-register">Register</a></li>
+                        <li><a href="auth-login.html" data-key="t-login">Generer Copyrigth</a></li>
+                        
                         
                     </ul>
                 </li>
@@ -63,7 +63,7 @@
                
                 
 
-                <li class="menu-title mt-2" data-key="t-components">Elements</li>
+                {{-- <li class="menu-title mt-2" data-key="t-components">Elements</li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
@@ -87,7 +87,7 @@
                         <li><a href="extended-rangeslider.html" data-key="t-range-slider">Range Slider</a></li>
                         
                     </ul>
-                </li>
+                </li> --}}
 
                
 
@@ -103,8 +103,8 @@
                     <img src="assets/images/giftbox.png" alt="">
                     <div class="mt-4">
                         <h5 class="alertcard-title font-size-16">En cas de probleme</h5>
-                        <p class="font-size-13">Upgrade your plan from a Free trial, to select ‘Business Plan’.</p>
-                        <a href="#!" class="btn btn-primary mt-2">Contacter AssDEv</a>
+                        <p class="font-size-13"></p>
+                        <a href="#!" class="btn btn-primary mt-2">Contacter Assane</a>
                     </div>
                 </div>
             </div>
