@@ -17,69 +17,42 @@
                     <div class="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
                         <div class="button-group filter-button-group">
                             <button data-filter="*" class="active">Tout</button>
-                            <button data-filter=".uxui">Copyright</button>
-                            <button data-filter=".branding">Voix Off</button>
+                           
+
+                        @foreach($categories as $cat)
+                                 <button data-filter=".cat-{{ $cat->id }}">{{ $cat->nom }}</button>
+                           @endforeach
+                            
 
                             <div class="active-bg"></div>
                         </div>
                     </div>
 
-                    @foreach ($projet as $item)
+                   
 
-                    <div class="portfolio-box wow fadeInUp" data-wow-delay=".6s">
-                        <div class="portfolio-sizer"></div>
-                        <div class="gutter-sizer"></div>
-                        <div class="portfolio-item branding">
-                            <div class="image-box">
-                                <img src="{{$item->photo}}" alt="">
+                            <div class="portfolio-box wow fadeInUp" data-wow-delay=".6s">
+                                <div class="portfolio-sizer"></div>
+                                <div class="gutter-sizer"></div>
+                                 @foreach ($projet as $item)
+                                    <div class="portfolio-item cat-{{$item->categorie_id}}">
+                                        <div class="image-box">
+                                            <img src="{{$item->photo}}" alt="">
+                                        </div>
+                                        <div class="content-box">
+                                            <h3 class="portfolio-title">{{$item->nom_service}} </h3>
+                                            <p>{{$item->petite_desc_service}}</p>
+                                            <i class="flaticon-up-right-arrow"></i>
+                                            <button data-mfp-src="#portfolio-wrapper-{{$item->id}}"
+                                                class="portfolio-link modal-popup"></button>
+                                        </div>
+                                    </div>
+                                    
+                                    @endforeach 
+                                
                             </div>
-                            <div class="content-box">
-                                <h3 class="portfolio-title">{{$item->nom_service}} </h3>
-                                <p>{{$item->petite_desc_service}}</p>
-                                <i class="flaticon-up-right-arrow"></i>
-                                <button data-mfp-src="#portfolio-wrapper"
-                                    class="portfolio-link modal-popup"></button>
-                            </div>
-                        </div>
-                        {{-- <div class="portfolio-item uxui">
-                            <div class="image-box">
-                                <img src="assets/img/portfolio/1.jpg" alt="">
-                            </div>
-                            <div class="content-box">
-                                <h3 class="portfolio-title">Discours porteur de sens </h3>
-                                <p>Pour un événement qui marque.</p>
-                                <i class="flaticon-up-right-arrow"></i>
-                                <button data-mfp-src="#portfolio-wrapper2"
-                                    class="portfolio-link modal-popup"></button>
-                            </div>
-                        </div>
-                        <div class="portfolio-item mobile-app">
-                            <div class="image-box">
-                                <img src="assets/img/portfolio/3.jpg" alt="">
-                            </div>
-                            <div class="content-box">
-                                <h3 class="portfolio-title">Méditation guidée</h3>
-                                <p>Voix douce, posée, enveloppante.</p>
-                                <i class="flaticon-up-right-arrow"></i>
-                                <button data-mfp-src="#portfolio-wrapper3"
-                                    class="portfolio-link modal-popup"></button>
-                            </div>
-                        </div>
-                        <div class="portfolio-item branding">
-                            <div class="image-box">
-                                <img src="assets/img/portfolio/4.jpg" alt="">
-                            </div>
-                            <div class="content-box">
-                                <h3 class="portfolio-title">Appel au don</h3>
-                                <p>Pour une association humanitaire.</p>
-                                <i class="flaticon-up-right-arrow"></i>
-                                <button data-mfp-src="#portfolio-wrapper4"
-                                    class="portfolio-link modal-popup"></button>
-                            </div>
-                        </div> --}}
-                    </div>
-                    @endforeach
+                   
                 </div>
             </div>
         </div>
     </section>
+    

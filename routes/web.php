@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Section\SectionController;
 use App\Http\Controllers\Section\PojetController;
@@ -52,7 +53,10 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/projet', [PojetController::class, 'SectionProjet'])->name('section.projet');  
     Route::get('/admin/projet/create', [PojetController::class, 'SectionProjetCreate'])->name('SectionProjet.create');
     Route::post('/admin/projet/store', [PojetController::class, 'SectionProjetStore'])->name('SectionProjet.Store'); 
-    Route::get('/admin/projet/editservice/{id}', [SectionController::class, 'EditProjet'])->name('edit.projet');
+    Route::get('/admin/projet/editsprojet/{id}', [PojetController::class, 'EditProjet'])->name('edit.projet');
+    Route::post('/admin/projet/update', [PojetController::class, 'UpdateProjet'])->name('Projet.Update'); 
+    Route::get('/admin/projet/deleteprojet/{id}', [PojetController::class, 'DeleteProjet'])->name('delete.projet');
+    Route::post('/categories', [PojetController::class, 'store'])->name('categories.store');
 
 
 
@@ -70,10 +74,24 @@ Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminReset
 Route::get('admin/reset-password/{token}/{email}', [AdminController::class, 'AdminResetPassword']);
 
 
+    Route::post('/send-form', [FormController::class, 'send'])->name('form.send');
+    Route::post('/contact', [FormController::class, 'Contact'])->name('form.contact');
 
 
 
+// use Illuminate\Support\Facades\Http;
+// Route::get('/test-telegram', function () {
+//     $token = env('TELEGRAM_BOT_TOKEN');
+//     $chatId = env('TELEGRAM_CHAT_ID');
+//     $message = "Test depuis Laravel";
 
+//     $response = Http::post("https://api.telegram.org/bot{$token}/sendMessage", [
+//         'chat_id' => $chatId,
+//         'text' => $message,
+//     ]);
+
+//     dd($response->json());
+// });
 
 
 

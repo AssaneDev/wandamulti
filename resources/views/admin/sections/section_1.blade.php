@@ -88,7 +88,7 @@
                             <input class="form-control" name="imagesecun" type="file" value="" id="image">
                         </div>
                         <div class="mb-3">
-                            <img id="showImage" src=" {{ (!empty($dataSection1->photo)) ? url('upload/image_sec1/'.$dataSection1->photo) : url('upload/no_image.jpg') }}" alt="" class="rounded-circle p-1 bg-primary" width="110" >
+                            <img id="showImage" src=" {{ (!empty($dataSection1->photo)) ? url($dataSection1->photo) : url('upload/no_image.jpg') }}" alt="" class="rounded-circle p-1 bg-primary" width="110px" >
                         </div>
                         <!-- end row -->
 
@@ -99,7 +99,7 @@
 
                                 
                                 <div class="form-group">
-                                    <button  type="submit" class="btn btn-primary">Submit form</button>
+                                    <button  type="submit" class="btn btn-primary">Mettre à jour</button>
                                 </div>
             </form>
                         </div>

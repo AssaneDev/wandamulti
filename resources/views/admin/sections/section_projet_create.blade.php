@@ -1,6 +1,7 @@
 @extends('admin.admin_dashboard')
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+@include('components.head.tinymce-config')
 
 <div class="page-content">
     <div class="container-fluid">
@@ -32,6 +33,16 @@
                                         </div>
                                     </div>
 
+                                    <div class="mb-3">
+                                    <label for="categorie_id" class="form-label">Catégorie</label>
+                                        <select name="categorie_id" id="categorie_id" class="form-select" required>
+                                            <option value="">-- Sélectionner une catégorie --</option>
+                                            @foreach ($categories as $categorie)
+                                                <option value="{{ $categorie->id }}">{{ $categorie->nom }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
                                     {{-- text editor --}}
                                               <!-- start page title -->
                         
@@ -50,9 +61,12 @@
                                     </div>
                                     <div class="card-body">
                                         
-                                        <textarea id="ckeditor-classic" name="longdescription" >
+                                        {{-- <textarea id="ckeditor-classic" name="longdescription" >
                                            
-                                        </textarea>    
+                                        </textarea>  --}}
+                                        <textarea id="myeditorinstance" name="longdescription" >
+                                           
+                                        </textarea>     
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +78,7 @@
                          <div class="col-xl-4 col-md-6">
                                         <div class="form-group mb-3">
                                             <label>Lien Videos Youtube</label>
-                                            <input type="text" name="lien" required data-pristine-required-message="Please Enter a username" class="form-control" />
+                                            <input type="text" name="lien"  class="form-control" />
                                         </div>
                                     <div class="form-group mb-3">
                                         <label for="audio">Fichier audio</label>

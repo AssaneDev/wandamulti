@@ -14,7 +14,9 @@
                         </div>
 
                         <div class="tj-contact-form">
-                            <form action="index.html">
+                            <form action="{{route('form.contact')}}" method="POST" id="contact-form">
+                                @csrf
+                                <input type="hidden" name="form_type" value="contact">
                                 <div class="row gx-3">
                                     <div class="col-sm-6">
                                         <div class="form_group">
@@ -30,7 +32,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form_group">
-                                            <input type="email" name="email" id="email" placeholder="Email ="
+                                            <input type="email" name="email" id="email" placeholder="Email"
                                                 autocomplete="off">
                                         </div>
                                     </div>
@@ -40,7 +42,7 @@
                                                 autocomplete="off">
                                         </div>
                                     </div>
-                                    <div class="col-12">
+                                    {{-- <div class="col-12">
                                         <div class="form_group">
                                             <select name="service" id="service" class="tj-nice-select">
                                                 <option value="" selected disabled>Choisir un service</option>
@@ -49,7 +51,7 @@
 
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-12">
                                         <div class="form_group">
                                             <textarea name="message" id="message" placeholder="Message"></textarea>

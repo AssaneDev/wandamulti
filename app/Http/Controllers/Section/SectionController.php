@@ -39,18 +39,19 @@ class SectionController extends Controller
             $image = $request->file('imagesecun');
     
             $manager = new ImageManager(new Driver());
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    
-            $img = $manager->read($image)->resize(436, 640)->toJpeg(80);
-            $img->save(public_path('upload/image_sec1/' . $name_gen));
+           
 
-            
+        $image = $request->file('imagesecun');
+        $name = uniqid() . '.' . $image->getClientOriginalExtension();
+        $path = public_path('upload/image_sec1/' . $name);
+        $manager->read($image)->resize(436,640)->toJpeg(80)->save($path);
+       
     
             // Enregistre le nouveau nom dans la DB
-            $sectionun->photo = $name_gen;
-    
+           
+             $sectionun->photo = 'upload/image_sec1/' . $name;
             // Supprime l'ancienne image si nécessaire
-            if ($oldPhotoPath && $oldPhotoPath !== $name_gen) {
+           if ($oldPhotoPath && $oldPhotoPath !== $sectionun->photo) {
                 $this->deleteOldImage($oldPhotoPath);
             }
         }
@@ -73,13 +74,13 @@ class SectionController extends Controller
           * @param string $oldPhotoPath The path of the old photo to delete.
           * @return void
           */
-        private function deleteOldImage(string  $oldPhotoPath): void{
-            $fullPath = public_path('upload/image_sec1/'.$oldPhotoPath);
-    
+        private function deleteOldImage(string $oldPhotoPath): void {
+            $fullPath = public_path($oldPhotoPath); // Ne pas préfixer deux fois le chemin
+
             if (file_exists($fullPath)) {
                 unlink($fullPath);
             }
-         }
+        }
          //End private methode
 
          public function SectionDeux()
@@ -135,7 +136,7 @@ class SectionController extends Controller
             $description_service->description = $request->longdescription;
             $description_service->save();
           // Notification de succès
-            return redirect()->back()->with([
+            return redirect()->route('section_2')->with([
                 'message' => 'Service ajouter avec success',
                 'alert-type' => 'success'
             ]);
@@ -182,7 +183,7 @@ class SectionController extends Controller
             $description_service->save();
         }
 
-        return redirect()->back()->with([
+        return redirect()->route('section_2')->with([
             'message' => 'Service mis à jour avec succès',
             'alert-type' => 'success'
         ]);

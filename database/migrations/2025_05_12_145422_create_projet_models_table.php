@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('photo_banniere')->nullable();
             $table->string('video_youtube')->nullable();
             $table->string('audio')->nullable();
+            $table->integer('categorie_id')->nullable();
             $table->timestamps();
         });
     }

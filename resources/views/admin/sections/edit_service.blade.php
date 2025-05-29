@@ -1,6 +1,7 @@
 @extends('admin.admin_dashboard')
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+@include('components.head.tinymce-config')
 
 <div class="page-content">
     <div class="container-fluid">
@@ -51,8 +52,11 @@
                                     </div>
                                     <div class="card-body">
                                         
-                                        <textarea id="ckeditor-classic" name="longdescservice" >
+                                        {{-- <textarea id="ckeditor-classic" name="longdescservice" >
                                             {{$description_service->description}}
+                                        </textarea>     --}}
+                                         <textarea id="myeditorinstance" name="longdescservice" >
+                                           {{$description_service->description}}
                                         </textarea>    
                                     </div>
                                 </div>

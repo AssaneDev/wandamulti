@@ -38,22 +38,26 @@
                         <div class="tj_main_sidebar">
                             <div class="sidebar_widget contact_form">
                                 <div class="widget_title">
-                                    <h3 class="title">Get in Touch</h3>
+                                    <h3 class="title">Entrer En Contact</h3>
                                 </div>
-                                <form action="#">
-                                    <div class="form_group">
-                                        <input type="text" name="name" placeholder="Name">
-                                    </div>
-                                    <div class="form_group">
-                                        <input type="email" name="email" placeholder="Email">
-                                    </div>
-                                    <div class="form_group">
-                                        <textarea name="message" placeholder="Your message"></textarea>
-                                    </div>
-                                    <div class="form_btn">
-                                        <button class="btn tj-btn-primary" type="submit">Envoyez Message</button>
-                                    </div>
-                                </form>
+                               <form method="POST" action="{{route('form.send')}}">
+    @csrf
+    <div class="form_group">
+        <input type="text" name="name" placeholder="Nom Complet" required>
+    </div>
+    <div class="form_group">
+        <input type="email" name="email" placeholder="Email" required>
+    </div>
+    <div class="form_group">
+        <input type="text" hidden name="projet" value="{{$item->nom_service}}" required>
+    </div>
+    <div class="form_group">
+        <textarea name="message" placeholder="Votre Message" required></textarea>
+    </div>
+    <div class="form_btn">
+        <button class="btn tj-btn-primary" type="submit">Envoyer le Message</button>
+    </div>
+</form>
                             </div>
                         </div>
                     </div>
@@ -73,7 +77,7 @@
     @foreach ($projet as $item)
     <div id="portfolio-wrapper-{{$item->id}}" class="popup_content_area zoom-anim-dialog mfp-hide">
         <div class="popup_modal_img">
-            <img src=" {{asset('frontend/assets/img/portfolio/modal-img.jpg')}} " alt="">
+            <img src=" {{asset($item->photo_banniere)}} " alt="">
         </div>
 
         <div class="popup_modal_content">
@@ -83,7 +87,6 @@
                     <div class="desc">
                         <p>{{$item->petite_desc_service}}</p>
                     </div>
-                    <a href="#" class="btn tj-btn-primary">Voir Détail <i class="fal fa-arrow-right"></i></a>
                 </div>
                 <!-- <div class="portfolio_info_items">
                     <div class="info_item">
@@ -104,21 +107,16 @@
                     </div>
                 </div> -->
             </div>
-
-            <div class="portfolio_gallery owl-carousel">
-                <div class="gallery_item">
-                    <img src="./assets/img/portfolio-gallery/p-gallery-1.jpg" alt="">
-                </div>
-                <div class="gallery_item">
-                    <img src="./assets/img/portfolio-gallery/p-gallery-2.jpg" alt="">
-                </div>
-                <div class="gallery_item">
-                    <img src="./assets/img/portfolio-gallery/p-gallery-3.jpg" alt="">
-                </div>
-                <div class="gallery_item">
-                    <img src="./assets/img/portfolio-gallery/p-gallery-4.jpg" alt="">
-                </div>
+              
+        @if (!empty($item->audio))
+            <div class="audio-wrapper-chill mb-4">
+                <h5 class="audio-title">Extrait audio</h5>
+                <audio controls class="custom-audio">
+                    <source src="{{ asset($item->audio) }}" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
             </div>
+        @endif         
 
             <div class="portfolio_description">
                 <h2 class="title">{{$item->nom_service}}</h2>
@@ -127,14 +125,45 @@
                         l’engagement : poétique, sincère, profond — sans être cliché.Ce texte, pensé comme une
                         déclaration universelle, donne à la cérémonie une dimension intime, authentique, et
                         profondément humaine.</p> --}}
-                       {!! $item->detail_service->description ?? 'Aucune description disponible.' !!}
+                       {!! $item->detail_projet->description ?? 'Aucune description disponible.' !!}
 
 
 
                 </div>
             </div>
+             @if (!empty($item->video_youtube))
+                <div class="embed-responsive embed-responsive-16by9 mb-4 shadow rounded overflow-hidden">
+                        <iframe width="100%" height="215"
+                                src="https://www.youtube.com/embed/{{ \Illuminate\Support\Str::after($item->video_youtube, 'v=') }}"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                </div> 
+             @endif
 
-          
+            <div class="portfolio_navigation">
+                    <!-- <div class="navigation_item prev-project">
+                        <a href="#" class="project">
+                            <i class="fal fa-arrow-left"></i>
+                            <div class="nav_project">
+                                <div class="label">Previous Project</div>
+                                <h3 class="title">Sebastian</h3>
+                            </div>
+                        </a>
+                    </div> -->
+                    <a href="#" class="btn tj-btn-primary">Entrer en contact<i class="fal fa-arrow-right"></i></a>
+
+                   {{-- <div class="navigation_item next-project">
+                        <a href="#" class="project">
+                            <div class="nav_project">
+                                <div class="label">Next Project</div>
+                                <h3 class="title">Qwillo</h3>
+                            </div>
+                            <i class="fal fa-arrow-right"></i>
+                        </a>
+                    </div>  --}}
+                </div>
         </div>
     </div>
     @endforeach

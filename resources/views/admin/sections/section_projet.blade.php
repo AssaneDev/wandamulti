@@ -12,12 +12,47 @@
                     <h4 class="card-title">Section Projet</h4>
                     <p class="card-title-desc">Section projet du site</p>
                     <div class="card-header">
-                      
                          
                     <a href="{{route('SectionProjet.create')}}" class="btn btn-primary waves-effect waves-light" style="float: right;">
                         <button type="button" class="btn btn-primary waves-effect waves-light">
                             Nouveau Projet</button>
-                    </a>  
+
+                       <button type="button" class="btn btn-outline-primary waves-effect waves-light"></button>
+
+                    </a> 
+
+                     <!-- Bouton -->
+<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCategorieModal">
+    + Ajouter une catégorie
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="addCategorieModal" tabindex="-1" aria-labelledby="addCategorieModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="POST" action="{{ route('categories.store') }}">
+        @csrf
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addCategorieModalLabel">Nouvelle catégorie</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="nom" class="form-label">Nom de la catégorie</label>
+              <input type="text" class="form-control" name="nom" id="nom" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Ajouter</button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
+
+                    
+
+                   
                  
                     </div>
                     <!-- end card header -->
@@ -83,11 +118,11 @@
                                                 <td>{!! Str::limit( $item->petite_desc_service ,50) !!}</td>
                                   
 
-                                                {{-- <td>
+                                                 <td>
                                                     <a href="{{route('edit.projet',$item->id)}}" class="btn btn-secondary waves-effect waves-light" > Modifier</a>
                                                     <a href="{{route('delete.projet',$item->id)}}" class="btn btn-danger px-3 radius-30" id="delete"> Supprimer</a>
 
-                                                </td>  --}}
+                                                </td> 
                                                 
                                                 
                                                 
