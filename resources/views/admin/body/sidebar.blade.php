@@ -54,9 +54,13 @@
                         <span data-key="t-authentication">WANDA-IA</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login.html" data-key="t-login">Generer Copyrigth</a></li>
-                        
-                        
+                        <li><a href="{{route('prompt.create')}}" data-key="t-login">Generer Copyrigth</a></li>
+                    </ul>
+                      <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="https://chatgpt.com/g/g-6842dd6c3e248191991c35cc8f717cbe-assistant-afo" data-key="t-login">Wanda IA Afo</a></li>
+                    </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="https://chatgpt.com/g/g-6843cb80c038819195fc947fe59cd3b8-wandaiamulti" data-key="t-login">Wanda IA MultiVoies</a></li>
                     </ul>
                 </li>
 

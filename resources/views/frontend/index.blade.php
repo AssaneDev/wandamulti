@@ -36,31 +36,50 @@
 
                     <div class="col-lg-5 col-xl-4">
                         <div class="tj_main_sidebar">
+                             <div class="sidebar_widget services_list">
+                                    <div class="widget_title">
+                                        <h3 class="title">Offre</h3>
+                                    </div>
+                                    <ul>
+                                        <li class="active">
+                                            <button>
+                                                <i class="flaticon-design"></i>
+                                                ✔ Atelier individuel (1h à 3h, sur Zoom ou en présentiel)
+                                            </button>
+                                        </li>
+                                        
+                                      
+                                       
+                                    </ul>
+                                </div>
                             <div class="sidebar_widget contact_form">
                                 <div class="widget_title">
                                     <h3 class="title">Entrer En Contact</h3>
                                 </div>
                                <form method="POST" action="{{route('form.send')}}">
-    @csrf
-    <div class="form_group">
-        <input type="text" name="name" placeholder="Nom Complet" required>
-    </div>
-    <div class="form_group">
-        <input type="email" name="email" placeholder="Email" required>
-    </div>
-    <div class="form_group">
-        <input type="text" hidden name="projet" value="{{$item->nom_service}}" required>
-    </div>
-    <div class="form_group">
-        <textarea name="message" placeholder="Votre Message" required></textarea>
-    </div>
-    <div class="form_btn">
-        <button class="btn tj-btn-primary" type="submit">Envoyer le Message</button>
-    </div>
-</form>
+                                    @csrf
+                                    <div class="form_group">
+                                        <input type="text" name="name" placeholder="Nom Complet" required>
+                                    </div>
+                                    <div class="form_group">
+                                        <input type="email" name="email" placeholder="Email" required>
+                                    </div>
+                                    <div class="form_group">
+                                        <input type="text" hidden name="projet" value="{{$item->nom_service}}" required>
+                                    </div>
+                                    <div class="form_group">
+                                        <textarea name="message" placeholder="Votre Message" required></textarea>
+                                    </div>
+                                    <div class="form_btn">
+                                        <button class="btn tj-btn-primary" type="submit">Envoyer le Message</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                        
                     </div>
+                    
+
                 </div>
             </div>
         </div>

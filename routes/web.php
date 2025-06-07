@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChatGptController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Section\SectionController;
@@ -57,6 +58,13 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/projet/update', [PojetController::class, 'UpdateProjet'])->name('Projet.Update'); 
     Route::get('/admin/projet/deleteprojet/{id}', [PojetController::class, 'DeleteProjet'])->name('delete.projet');
     Route::post('/categories', [PojetController::class, 'store'])->name('categories.store');
+
+    Route::get('/prompt', [ChatGptController::class, 'PromptInterface'])->name('prompt.create');
+   
+    Route::post('/chatgpt', [ChatGptController::class, 'Prompt'])->name('Prompt.envoie'); 
+
+
+
 
 
 

@@ -4,10 +4,10 @@
                 <div class="col-md-12">
                     <div class="section-header text-center">
                         <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">Projet Récent</h2>
-                        <p class=" wow fadeInUp" data-wow-delay=".4s">We put your ideas and thus your wishes in the
-                            form of a unique web project that inspires
-                            you
-                            and you customers.</p>
+                        <p class=" wow fadeInUp" data-wow-delay=".4s">Chaque projet est une rencontre, chaque texte une aventure.
+J’écris pour faire vibrer, pour faire vendre, pour faire sens.
+
+.</p>
                     </div>
                 </div>
             </div>

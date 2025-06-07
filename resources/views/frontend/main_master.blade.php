@@ -88,6 +88,40 @@
 }
 
 
+.clignote-degrade {
+      font-weight: bold;
+      font-size: 24px;
+      background: linear-gradient(90deg, #fbfdfb, black);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: clignoter 1s infinite, degrade 2s infinite linear;
+    }
+
+    @keyframes clignoter {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes degrade {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    
+ 
+
+
+
 </style>
 
 <body>
@@ -152,7 +186,7 @@
                         <nav>
                             <ul>
                                 <li><a href="#services-section">Services</a></li>
-                                <li><a href="#works-section">Travails</a></li>
+                                <li><a href="#works-section">Projets</a></li>
                                 {{-- <li><a href="#skills-section">Offres</a></li> --}}
                                 <li><a href="#testimonials-section">Temoignages</a></li>
                                 <li><a href="#contact-section">Contact</a></li>
@@ -160,10 +194,7 @@
                         </nav>
                     </div>
 
-                     <div class="header-button">
-                        <a href="#" class="btn tj-btn-primary">Multivoies</a>
-                    </div> 
-
+                     
                     <div class="menu-bar d-lg-none">
                         <button>
                             <span></span>
@@ -196,11 +227,10 @@
                     <div class="header-menu">
                         <nav>
                             <ul>
-                                <li><a href="#services-section">Services</a></li>
-                                <li><a href="#works-section">Works</a></li>
-                                <li><a href="#resume-section">Resume</a></li>
-                                <li><a href="#skills-section">Skills</a></li>
-                                <li><a href="#testimonials-section">Testimonials</a></li>
+                                 <li><a href="#services-section">Services</a></li>
+                                <li><a href="#works-section">Projets</a></li>
+                                {{-- <li><a href="#skills-section">Offres</a></li> --}}
+                                <li><a href="#testimonials-section">Temoignages</a></li>
                                 <li><a href="#contact-section">Contact</a></li>
                             </ul>
                         </nav>
@@ -209,6 +239,7 @@
                     <div class="header-button">
                         <a href="#" class="btn tj-btn-primary">Multivoies</a>
                     </div>
+
 
                     <div class="menu-bar d-lg-none">
                         <button>
@@ -221,9 +252,11 @@
                 </div>
             </div>
         </div>
-    </header>
-    <!-- HEADER END -->
 
+    </header>
+   
+    <!-- HEADER END -->
+                     
     @yield('main')
 
     <!-- FOOTER AREA START -->
@@ -232,9 +265,9 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="footer-logo-box">
-                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " alt=""></a>
+                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/LOGO VOIX.jpg')}} " alt=""></a>
                     </div>
-                    <div class="footer-menu">
+                    {{-- <div class="footer-menu">
                         <nav>
                             <ul>
                                 <li><a href="#services-section">Services</a></li>
@@ -245,7 +278,7 @@
                                 <li><a href="#contact-section">Contact</a></li>
                             </ul>
                         </nav>
-                    </div>
+                    </div> --}}
                     <div class="copy-text">
                         <p>&copy; 2024 All rights reserved by <a href="#" target="_blank">ThemeJunction</a></p>
                     </div>

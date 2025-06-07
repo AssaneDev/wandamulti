@@ -1,4 +1,5 @@
  <section class="hero-section d-flex align-items-center" id="intro">
+
         <div class="intro_text">
             <svg viewBox="0 0 1320 300">
                 <text x="50%" Y="50%" text-anchor="middle">
@@ -15,6 +16,7 @@
                         </h1>
 
                         <div class="hero-image-box d-md-none text-center wow fadeInRight" data-wow-delay="1.3s">
+
                            <img  src="{{ asset($section->photo)}}" alt="">
 
                         </div>
@@ -31,8 +33,12 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6 d-none d-md-block">
+ <span style="margin-left:50% " class="clignote-degrade">Multivoies</span>
+
                     <div class="hero-image-box text-center wow fadeInRight" data-wow-delay="1.5s">
+
                          <img src="{{ asset($section->photo)}}" alt="">
 
                     </div>
