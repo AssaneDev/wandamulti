@@ -6,6 +6,8 @@ use App\Mail\ContactMessage;
 use Illuminate\Support\Facades\Http;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use App\Models\ContactMessageLog;
+
 
 class FormController extends Controller
 {
@@ -20,12 +22,29 @@ public function send(Request $request)
         'message' => 'required|string',
     ]);
 
+    // Enregistrement dans la base
+    ContactMessageLog::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'phone' => $data['phone'],
+        'projet' => $data['projet'],
+        'message' => $data['message'],
+        'source' => 'classic',
+    ]);
+
     $subject = "Nouveau message de {$data['name']} (depuis formulaire classique)";
 
-    Mail::to('adiop6225@gmail.com')->send(new ContactMessage($subject, $data, 'contact'));
+    Mail::to('costantiniwanda@gmail.com')->send(new ContactMessage($subject, $data));
+    Mail::to($data['email'])->send(new ContactMessage(
+        'Votre message a bien été envoyé',
+        $data,
+        'emails.confirmation_client'
+    ));
+
     $this->sendTelegramNotifications($data, 'classic');
 
-    return back()->with('success', 'Message envoyé avec succès.');
+    
+     return response()->json(['status' => 'ok']);
 }
 
 public function Contact(Request $request)
@@ -38,13 +57,31 @@ public function Contact(Request $request)
         'message' => 'required|string',
     ]);
 
-    $subject = "Nouveau message de {$data['fname']} {$data['lname']} (depuis page contact)";
+    $fullname = "{$data['fname']} {$data['lname']}";
 
-    Mail::to('adiop6225@gmail.com')->send(new ContactMessage($subject, $data, 'contact_page'));
+    ContactMessageLog::create([
+        'name' => $fullname,
+        'email' => $data['email'],
+        'phone' => $data['phone'],
+        'message' => $data['message'],
+        'source' => 'page',
+    ]);
+
+    $subject = "Nouveau message de {$fullname} (depuis page contact)";
+
+    Mail::to('adiop6225@gmail.com')->send(new ContactMessage($subject, $data, 'emails.contact_page'));
+    Mail::to($data['email'])->send(new ContactMessage(
+        'Votre message a bien été envoyé',
+        $data,
+        'emails.confirmation_client'
+    ));
+
     $this->sendTelegramNotifications($data, 'page');
 
-    return back()->with('success', 'Message envoyé avec succès.');
+    //  return response()->json(['status' => 'ok']);
+     return redirect()->back()->with('success', 'Votre message a bien été envoyé.');
 }
+
 
 private function sendTelegramNotifications($data, $type = 'classic')
 {

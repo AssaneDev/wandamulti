@@ -56,13 +56,16 @@
                                 <div class="widget_title">
                                     <h3 class="title">Entrer En Contact</h3>
                                 </div>
-                               <form method="POST" action="{{route('form.send')}}">
+                               <form method="POST" action="{{route('form.send')}}" class="contactForm" data-service="{{$item->id}}">  
                                     @csrf
                                     <div class="form_group">
                                         <input type="text" name="name" placeholder="Nom Complet" required>
                                     </div>
                                     <div class="form_group">
                                         <input type="email" name="email" placeholder="Email" required>
+                                    </div>
+                                     <div class="form_group">
+                                        <input type="tel" name="phone" id="phone" placeholder="Téléphone" required>
                                     </div>
                                     <div class="form_group">
                                         <input type="text" hidden name="projet" value="{{$item->nom_service}}" required>
@@ -289,3 +292,50 @@
 </main>
 
 @endsection
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(() => {
+        const forms = document.querySelectorAll('.contactForm');
+
+        forms.forEach(form => {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+                const url = this.getAttribute('action');
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Erreur de traitement');
+                    return response.json();
+                })
+                .then(data => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Merci !',
+                        text: 'Votre message a bien été envoyé.',
+                        confirmButtonText: 'Fermer'
+                    });
+                    this.reset();
+                })
+                .catch(error => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur',
+                        text: 'Une erreur est survenue. Veuillez réessayer.',
+                    });
+                });
+            });
+        });
+    }, 300); // petit délai pour s'assurer que le DOM est prêt
+});
+</script>
+@endpush

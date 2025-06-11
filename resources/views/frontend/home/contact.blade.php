@@ -77,8 +77,8 @@
                                     <i class="flaticon-phone-call"></i>
                                 </div>
                                 <div class="text-box">
-                                    <p>Phone</p>
-                                    <a href="tel:0123456789">+221 78 459 41 09</a>
+                                    <p>Téléphone</p>
+                                    <a href="tel:0123456789">+33 6 69 31 60 16</a>
                                 </div>
                             </li>
                             <li class="d-flex flex-wrap align-items-center position-relative wow fadeInRight"
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="text-box">
                                     <p>Email</p>
-                                    <a href="mailto:mail@mail.com">Wanda@multi.com</a>
+                                    <a href="mailto:mail@mail.com">wandamulti@gmail.com</a>
                                 </div>
                             </li>
                             <li class="d-flex flex-wrap align-items-center position-relative wow fadeInRight"
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="text-box">
                                     <p>Address</p>
-                                    <a href="#">Park Street Pine, <br>FL 33157, France</a>
+                                    <a href="#">France, <br>FL 33157, France</a>
                                 </div>
                             </li>
                         </ul>
@@ -107,3 +107,4 @@
             </div>
         </div>
     </section>
+   

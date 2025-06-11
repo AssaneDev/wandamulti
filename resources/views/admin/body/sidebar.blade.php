@@ -8,12 +8,12 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" data-key="t-menu">Menu</li>
 
-                <li>
+                {{-- <li>
                     <a href="index.html">
                         <i data-feather="home"></i>
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
@@ -54,16 +54,36 @@
                         <span data-key="t-authentication">WANDA-IA</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('prompt.create')}}" data-key="t-login">Generer Copyrigth</a></li>
+                        <li><a href="{{route('prompt.create')}}" data-key="t-login">IA En Formation</a></li>
                     </ul>
                       <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="https://chatgpt.com/g/g-6842dd6c3e248191991c35cc8f717cbe-assistant-afo" data-key="t-login">Wanda IA Afo</a></li>
+                   
+                       <li> <a href="#" onclick="openTrialModal(event, 'https://chatgpt.com/g/g-6842dd6c3e248191991c35cc8f717cbe-assistant-afo')">Wanda IA Afo</a></li>
+
                     </ul>
+
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="https://chatgpt.com/g/g-6843cb80c038819195fc947fe59cd3b8-wandaiamulti" data-key="t-login">Wanda IA MultiVoies</a></li>
+                        
+                       <li> <a href="#" onclick="openTrialModal(event, 'https://chatgpt.com/g/g-6843cb80c038819195fc947fe59cd3b8-wandaiamulti')">Wanda IA MultiVoies</a></li>
+
                     </ul>
                 </li>
-
+  
+                <!-- Modal -->
+<div id="trialModal" class="modal-overlay">
+  <div class="modal-content">
+    <h2>⏳ Période d’essai de votre gpt en cours </h2>
+    <p>Il vous reste <strong>5 jours</strong> d’essai gratuit. Veuillez ne pas interrompre l'apprentissage de votre IA acheter l'abonnement annuelle!
+      <a href="{{ route('gpt.premium') }}" target="_blank" class="btn btn-primary">
+    Pourquoi acheter les tokens d'Open IA ?
+</a>
+    </p>
+    <div class="modal-actions">
+      <button onclick="closeModal()">Annuler</button>
+      <button class="continue" id="continueBtn">Continuer</button>
+    </div>
+  </div>
+</div>
                
                 
 

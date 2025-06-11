@@ -280,7 +280,7 @@
                         </nav>
                     </div> --}}
                     <div class="copy-text">
-                        <p>&copy; 2024 All rights reserved by <a href="#" target="_blank">ThemeJunction</a></p>
+                        <p>&copy; 2025 Tous Droits Réservés <a href="#" target="_blank">WandaMulti</a></p>
                     </div>
                 </div>
             </div>
@@ -322,6 +322,8 @@
     });
 </script>
 
+<!-- SweetAlert2 CDN -->
+@stack('scripts')
     
 </body>
 

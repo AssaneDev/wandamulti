@@ -30,7 +30,64 @@
             <!-- App Css-->
             <link href=" {{asset('backend/assets/css/app.min.css')}} " id="app-style" rel="stylesheet" type="text/css" />
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+            <style>
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-actions .continue {
+  background-color: #1abc9c;
+  color: white;
+}
+
+.modal-actions button:hover {
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+</style>
+
         </head>
+        
     
         <body>
     
@@ -157,6 +214,28 @@
 
   });
   </script>
+
+
+<script>
+let targetRedirectUrl = null;
+
+function openTrialModal(event, url) {
+    event.preventDefault();
+    targetRedirectUrl = url;
+    document.getElementById("trialModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("trialModal").style.display = "none";
+}
+
+document.getElementById("continueBtn").addEventListener("click", function () {
+    window.location.href = targetRedirectUrl;
+});
+</script>
+
+
+
     
         </body>
     

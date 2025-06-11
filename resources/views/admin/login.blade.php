@@ -35,13 +35,13 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text-center">
                                         <a href="index.html" class="d-block auth-logo">
-                                            <img src=" {{asset('backend/assets/images/logo-sm.svg')}} " alt="" height="28"> <span class="logo-txt">Minia</span>
+                                            <img  src=" {{asset('frontend/assets/img/logo/LOGO VOIX.jpg')}} " alt="" height="28"> <span class="logo-txt">Multivoies</span>
                                         </a>
                                     </div>
                                     <div class="auth-content my-auto">
                                         <div class="text-center">
-                                            <h5 class="mb-0">Welcome Back !</h5>
-                                            <p class="text-muted mt-2">Sign in to continue to Minia.</p>
+                                            <h5 class="mb-0">Bienvenue Wanda!</h5>
+                                            <p class="text-muted mt-2">Continuer vers MultiVoies</p>
                                         </div>
                                         @if ($errors->any())
 
@@ -68,7 +68,7 @@
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-start">
                                                     <div class="flex-grow-1">
-                                                        <label class="form-label">Password</label>
+                                                        <label class="form-label">Mot De Pass</label>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div class="">
@@ -93,7 +93,7 @@
 
 
 
-                                        <div class="mt-4 pt-2 text-center">
+                                        {{-- <div class="mt-4 pt-2 text-center">
                                             <div class="signin-other-title">
                                                 <h5 class="font-size-14 mb-3 text-muted fw-medium">- Sign in with -</h5>
                                             </div>
@@ -123,10 +123,10 @@
                                         <div class="mt-5 text-center">
                                             <p class="text-muted mb-0">Don't have an account ? <a href="auth-register.html"
                                                     class="text-primary fw-semibold"> Signup now </a> </p>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="mt-4 mt-md-5 text-center">
-                                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Minia   . Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> MultiVoies  . creer par <i class="mdi mdi-heart text-danger"></i> AssaneMultie</p>
                                     </div>
                                 </div>
                             </div>
@@ -153,13 +153,13 @@
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-xl-7">
                                     <div class="p-0 p-sm-4 px-xl-0">
-                                        <div id="reviewcarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                                        {{-- <div id="reviewcarouselIndicators" class="carousel slide" data-bs-ride="carousel">
                                             <div class="carousel-indicators carousel-indicators-rounded justify-content-start ms-0 mb-0">
                                                 <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                             </div>
-                                            <!-- end carouselIndicators -->
+                                            
                                             <div class="carousel-inner">
                                                 <div class="carousel-item active">
                                                     <div class="testi-contain text-white">
@@ -236,8 +236,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- end carousel-inner -->
-                                        </div>
+                                           
+                                        </div> --}}
                                         <!-- end review carousel -->
                                     </div>
                                 </div>

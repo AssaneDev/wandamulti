@@ -63,6 +63,11 @@ Route::middleware('admin')->group(function () {
    
     Route::post('/chatgpt', [ChatGptController::class, 'Prompt'])->name('Prompt.envoie'); 
 
+    Route::get('/assistant-premium', function () {
+    return view('admin.gptpreminium');
+      })->name('gpt.premium');
+
+
 
 
 

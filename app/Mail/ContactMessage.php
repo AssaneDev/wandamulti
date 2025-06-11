@@ -3,23 +3,20 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Queue\SerializesModels;
 
 class ContactMessage extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subjectLine;
     public $data;
     public $viewTemplate;
 
-    public function __construct($subjectLine, $data, $viewTemplate = 'contact')
+    public function __construct(public string $subjectLine, array $data, string $viewTemplate = 'emails.contact')
     {
-        $this->subjectLine = $subjectLine;
         $this->data = $data;
         $this->viewTemplate = $viewTemplate;
     }
@@ -27,7 +24,8 @@ class ContactMessage extends Mailable
     public function build()
     {
         return $this->subject($this->subjectLine)
-                    ->view($this->viewTemplate)
+                    ->markdown($this->viewTemplate)
                     ->with('data', $this->data);
     }
 }
+

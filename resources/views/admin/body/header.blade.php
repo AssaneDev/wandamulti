@@ -8,7 +8,8 @@
                         <img src=" {{asset('backend/assets/images/logo-sm.svg')}} " alt="" height="24">
                     </span>
                     <span class="logo-lg">
-                        <img src=" {{asset('backend/assets/images/logo-sm.svg')}} " alt="" height="24"> <span class="logo-txt">Admin</span>
+                                                <a href="{{route('admin.dashboard')}}"><img src=" {{asset('frontend/assets/img/logo/LOGO VOIX.jpg')}} " alt="" height="24px"></a>
+<span class="logo-txt">Admin</span>
                     </span>
                 </a>
 
