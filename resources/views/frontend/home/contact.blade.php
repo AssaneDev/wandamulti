@@ -14,7 +14,7 @@
                         </div>
 
                         <div class="tj-contact-form">
-                            <form action="{{route('form.contact')}}" method="POST" id="contact-form">
+                            <form action="{{route('form.contact')}}" method="POST" class="contactForm" id="contact-form">
                                 @csrf
                                 <input type="hidden" name="form_type" value="contact">
                                 <div class="row gx-3">
