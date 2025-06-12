@@ -69,7 +69,7 @@ public function Contact(Request $request)
 
     $subject = "Nouveau message de {$fullname} (depuis page contact)";
 
-    Mail::to('adiop6225@gmail.com')->send(new ContactMessage($subject, $data, 'emails.contact_page'));
+    Mail::to('costantiniwanda@gmail.com')->send(new ContactMessage($subject, $data, 'emails.contact_page'));
     Mail::to($data['email'])->send(new ContactMessage(
         'Votre message a bien été envoyé',
         $data,
