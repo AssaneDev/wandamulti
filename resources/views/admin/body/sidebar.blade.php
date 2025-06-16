@@ -73,7 +73,7 @@
 <div id="trialModal" class="modal-overlay">
   <div class="modal-content">
     <h2>⏳ Période d’essai de votre gpt en cours </h2>
-    <p>Il vous reste <strong>5 jours</strong> d’essai gratuit. Veuillez ne pas interrompre l'apprentissage de votre IA acheter l'abonnement annuelle!
+    <p>Il vous reste <strong>1 jour</strong> d’essai gratuit. Veuillez ne pas interrompre l'apprentissage de votre IA acheter l'abonnement annuelle!
       <a href="{{ route('gpt.premium') }}" target="_blank" class="btn btn-primary">
     Pourquoi acheter les tokens d'Open IA ?
 </a>
