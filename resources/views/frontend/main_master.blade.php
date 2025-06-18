@@ -265,7 +265,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="footer-logo-box">
-                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/LOGO VOIX.jpg')}} " alt=""></a>
+                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " alt=""></a>
                     </div>
                     {{-- <div class="footer-menu">
                         <nav>

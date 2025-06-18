@@ -54,17 +54,17 @@
                         <span data-key="t-authentication">WANDA-IA</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('prompt.create')}}" data-key="t-login">IA En Formation</a></li>
+                        <li><a href="#" data-key="t-login">IA En Formation</a></li>
                     </ul>
                       <ul class="sub-menu" aria-expanded="false">
                    
-                       <li> <a href="#" onclick="openTrialModal(event, 'https://chatgpt.com/g/g-6842dd6c3e248191991c35cc8f717cbe-assistant-afo')">Wanda IA Afo</a></li>
+                       <li> <a href="https://chatgpt.com/g/g-6842dd6c3e248191991c35cc8f717cbe-assistant-afo" >Wanda IA Afo</a></li>
 
                     </ul>
 
                     <ul class="sub-menu" aria-expanded="false">
                         
-                       <li> <a href="#" onclick="openTrialModal(event, 'https://chatgpt.com/g/g-6843cb80c038819195fc947fe59cd3b8-wandaiamulti')">Wanda IA MultiVoies</a></li>
+                       <li> <a href="https://chatgpt.com/g/g-6843cb80c038819195fc947fe59cd3b8-wandaiamulti" >Wanda IA MultiVoies</a></li>
 
                     </ul>
                 </li>
