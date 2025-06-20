@@ -132,6 +132,40 @@
 
     
  
+.logo-flash-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+/* Applique le clignotement au logo */
+.logo-flash-img {
+    width: 100px;
+    height: auto;
+    animation: clignoteLogo 2s infinite;
+}
+
+/* Applique le clignotement au texte */
+.logo-flash-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(3, 63, 16);
+    animation: clignoteTexte 2s infinite;
+}
+
+/* Clignotement logo */
+@keyframes clignoteLogo {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* Clignotement texte */
+@keyframes clignoteTexte {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
 
 
 
@@ -237,7 +271,7 @@
 
                     <div class="logo-box">
                         <a href="index.html">
-                            <img src="assets/img/logo/logo.png" alt="">
+                            <img src="{{ asset('frontend/assets/img/logo/logo.png') }}" alt="">
                         </a>
                     </div>
 

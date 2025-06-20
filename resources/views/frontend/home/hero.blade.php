@@ -1,4 +1,6 @@
  <section class="hero-section d-flex align-items-center" id="intro">
+ 
+
 
         <div class="intro_text">
             <svg viewBox="0 0 1320 300">
@@ -12,10 +14,11 @@
 
                 <div class="col-md-6">
                     <div class="hero-content-box">
-                        <center>
-                            <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " width="200px" alt=""></a>
-
-                        </center>
+                          <!-- Logo clignotant visible partout -->
+<div class="logo-flash-container text-center mb-3">
+    <img src="{{ asset('frontend/assets/img/logo/logo.png') }}" alt="Logo" class="logo-flash-img" width="180">
+    <span class="logo-flash-text">Multivoies</span>
+</div>
 
                      
 
@@ -43,7 +46,7 @@
                 </div>
 
                 <div class="col-md-6 d-none d-md-block">
- <span style="margin-left:50% " class="clignote-degrade">Multivoies</span>
+
 
                     <div class="hero-image-box text-center wow fadeInRight" data-wow-delay="1.5s">
 
