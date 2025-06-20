@@ -16,7 +16,7 @@
                     <div class="hero-content-box">
                           <!-- Logo clignotant visible partout -->
 <div class="logo-flash-container text-center mb-3">
-    <img src="{{ asset('frontend/assets/img/logo/logo.png') }}" alt="Logo" class="logo-flash-img" width="180">
+    <img src="{{ asset('frontend/assets/img/logo/logo1.png') }}" alt="Logo" class="logo-flash-img" width="180">
     <span class="logo-flash-text">Multivoies</span>
 </div>
 

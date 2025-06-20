@@ -243,7 +243,7 @@
 
                         <div class="mobile-logo d-block d-lg-none text-center py-2">
                             <a href="{{ url('/') }}">
-                                <img src="{{ asset('frontend/assets/img/logo/logo.png') }}" alt="Logo Mobile" style="width: 120px;">
+                                <img src="{{ asset('frontend/assets/img/logo/logo1.png') }}" alt="Logo Mobile" style="width: 120px;">
                             </a>
                         </div>
 
@@ -271,7 +271,7 @@
 
                     <div class="logo-box">
                         <a href="index.html">
-                            <img src="{{ asset('frontend/assets/img/logo/logo.png') }}" alt="">
+                            <img src="{{ asset('frontend/assets/img/logo/logo1.png') }}" alt="">
                         </a>
                     </div>
 
@@ -324,7 +324,7 @@
                     {{-- <div class="footer-logo-box">
                         <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " style="width: 200px" alt=""></a>
                     </div> --}}
-                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " style="width: 150px" alt=""></a>
+                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo1.png')}} " style="width: 150px" alt=""></a>
 
                     {{-- <div class="footer-menu">
                         <nav>
