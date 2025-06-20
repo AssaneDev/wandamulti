@@ -9,8 +9,16 @@
         </div>
         <div class="container">
             <div class="row align-items-center">
+
                 <div class="col-md-6">
                     <div class="hero-content-box">
+                        <center>
+                            <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " width="200px" alt=""></a>
+
+                        </center>
+
+                     
+
                         <span class="hero-sub-title wow fadeInLeft" data-wow-delay="1.1s"> {{$section->titre1}} </span>
                         <h1 class="hero-title wow fadeInLeft" data-wow-delay="1.2s">{{$section->titre2}}
                         </h1>

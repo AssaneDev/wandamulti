@@ -91,12 +91,12 @@
 .clignote-degrade {
       font-weight: bold;
       font-size: 24px;
-      background: linear-gradient(90deg, #fbfdfb, black);
+      background: linear-gradient(90deg, #093d09, rgb(241, 240, 240));
       background-size: 200% auto;
       color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
-      animation: clignoter 1s infinite, degrade 2s infinite linear;
+      animation: clignoter 8s infinite, degrade 9s infinite linear;
     }
 
     @keyframes clignoter {
@@ -116,6 +116,19 @@
         background-position: 100% 50%;
       }
     }
+
+    .mobile-logo {
+    display: none;
+}
+
+@media screen and (max-width: 991.98px) {
+    .mobile-logo {
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
 
     
  
@@ -191,7 +204,17 @@
                                 <li><a href="#testimonials-section">Temoignages</a></li>
                                 <li><a href="#contact-section">Contact</a></li>
                             </ul>
+      
                         </nav>
+
+                        <div class="mobile-logo d-block d-lg-none text-center py-2">
+                            <a href="{{ url('/') }}">
+                                <img src="{{ asset('frontend/assets/img/logo/logo.png') }}" alt="Logo Mobile" style="width: 120px;">
+                            </a>
+                        </div>
+
+                
+
                     </div>
 
                      
@@ -264,9 +287,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <div class="footer-logo-box">
-                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " alt=""></a>
-                    </div>
+                    {{-- <div class="footer-logo-box">
+                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " style="width: 200px" alt=""></a>
+                    </div> --}}
+                        <a href="#"><img src=" {{asset('frontend/assets/img/logo/logo.png')}} " style="width: 150px" alt=""></a>
+
                     {{-- <div class="footer-menu">
                         <nav>
                             <ul>
