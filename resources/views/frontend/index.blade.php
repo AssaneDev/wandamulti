@@ -1,3 +1,5 @@
+
+
 @extends('frontend.main_master')
 @section('main')
 
@@ -6,6 +8,7 @@
     $section2 = App\Models\SectionModel2::all();
     
 @endphp
+
 
 <main class="site-content" id="content">
     <!-- HERO SECTION START -->
@@ -73,6 +76,12 @@
                                     <div class="form_group">
                                         <textarea name="message" placeholder="Votre Message" required></textarea>
                                     </div>
+                                    <input type="text" name="website" style="display:none">
+
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
+                                    @error('g-recaptcha-response')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                     <div class="form_btn">
                                         <button class="btn tj-btn-primary" type="submit">Envoyer le Message</button>
                                     </div>
@@ -338,4 +347,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 300); // petit délai pour s'assurer que le DOM est prêt
 });
 </script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 @endpush

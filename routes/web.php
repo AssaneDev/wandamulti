@@ -87,8 +87,11 @@ Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminReset
 Route::get('admin/reset-password/{token}/{email}', [AdminController::class, 'AdminResetPassword']);
 
 
-    Route::post('/send-form', [FormController::class, 'send'])->name('form.send');
-    Route::post('/contact', [FormController::class, 'Contact'])->name('form.contact');
+    Route::post('/send-form', [FormController::class, 'send'])->name('form.send')
+    ->middleware('throttle:3,1'); // 3 requêtes par minute;
+    Route::post('/contact', [FormController::class, 'Contact'])->name('form.contact')
+    
+    ->middleware('throttle:3,1'); // 3 requêtes par minute;
 
 
 

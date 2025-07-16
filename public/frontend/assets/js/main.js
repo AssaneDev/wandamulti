@@ -296,13 +296,13 @@ Description: Gerold - Personal Portfolio HTML5 Template
 			attr: { d: flat },
 			ease: "power2.easeOut",
 		});
-		tl.to(".preloader", {
-			y: -1500,
-		});
-		tl.to(".preloader", {
-			zIndex: -1,
-			display: "none",
-		});
+		// tl.to(".preloader", {
+		// 	y: -1500,
+		// });
+		// tl.to(".preloader", {
+		// 	zIndex: -1,
+		// 	display: "none",
+		// });
 
 		/*------------------------------------------------------
   	/  Sidebar Hover BG Color

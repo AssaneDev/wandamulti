@@ -1,4 +1,6 @@
- <section class="contact-section" id="contact-section">
+
+
+<section class="contact-section" id="contact-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-7 order-2 order-md-1">
@@ -42,6 +44,8 @@
                                                 autocomplete="off">
                                         </div>
                                     </div>
+                                    <input type="text" name="website" style="display:none">
+
                                     {{-- <div class="col-12">
                                         <div class="form_group">
                                             <select name="service" id="service" class="tj-nice-select">
@@ -57,6 +61,21 @@
                                             <textarea name="message" id="message" placeholder="Message"></textarea>
                                         </div>
                                     </div>
+                                   <div class="col-12">
+                                        <div class="form_group">
+                                            <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
+
+                                        </div>
+                                    </div>
+
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                    @endif
+
+
+
+
+
                                     <div class="col-12">
                                         <div class="form_btn">
                                             <button type="submit" class="btn tj-btn-primary">Envoyer</button>
@@ -107,4 +126,4 @@
             </div>
         </div>
     </section>
-   
+

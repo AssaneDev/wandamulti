@@ -14,13 +14,31 @@ class FormController extends Controller
 public function send(Request $request)
 {
     $data = $request->validate([
-        'name' => 'required|string',
-        'email' => 'required|email',
-        'phone' => 'required|string',
-        'projet' => 'required|string',
-        'message' => 'required|string',
+    'name' => 'required|string|min:2|max:60|regex:/^[\pL\s\-]+$/u',
+    'email' => 'required|email|max:100',
+    'phone' => 'required|string|min:6|max:25|regex:/^[\d\s\+\-\(\)]+$/',
+    'projet' => 'required|string|min:3|max:100',
+    'message' => 'required|string|min:10|max:1000',
+    'g-recaptcha-response' => 'required',
+]);
+    
+    if ($request->filled('website')) {
+    return response()->json([
+        'status' => 'error',
+        'message' => 'Bot détecté (champ caché rempli)'
     ]);
+}
 
+
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => env('RECAPTCHA_SECRET_KEY'),
+            'response' => $request->input('g-recaptcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        if (! $response->json('success')) {
+            return back()->withErrors(['captcha' => 'Échec de la vérification reCAPTCHA.'])->withInput();
+}
     // Enregistrement dans la base
     ContactMessageLog::create([
         'name' => $data['name'],
@@ -48,14 +66,37 @@ public function send(Request $request)
 
 public function Contact(Request $request)
 {
-    $data = $request->validate([
-        'fname' => 'required|string',
-        'lname' => 'required|string',
-        'email' => 'required|email',
-        'phone' => 'required|string',
-        'message' => 'required|string',
+   $request->validate([
+    'fname' => 'required|string|min:2|max:50',
+    'lname' => 'required|string|min:2|max:50',
+    'email' => 'required|email|max:100',
+    'phone' => 'required|string|regex:/^[\d\s\+\-\(\)]+$/',
+    'message' => 'required|string|min:10|max:1000',
+    'g-recaptcha-response' => 'required',
+]);
+
+
+    if ($request->filled('website')) {
+    return response()->json([
+        'status' => 'error',
+        'message' => 'Bot détecté (champ caché rempli)'
+    ]);
+}
+
+    $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+        'secret' => env('RECAPTCHA_SECRET_KEY'),
+        'response' => $request->input('g-recaptcha-response'),
+        'remoteip' => $request->ip(),
     ]);
 
+    if (! $response->json('success')) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Vérification reCAPTCHA échouée.'
+        ]);
+    }
+
+    $data = $request->only('fname', 'lname', 'email', 'phone', 'message');
     $fullname = "{$data['fname']} {$data['lname']}";
 
     ContactMessageLog::create([
@@ -65,24 +106,17 @@ public function Contact(Request $request)
         'message' => $data['message'],
         'source' => 'page',
     ]);
-
-    $subject = "Nouveau message de {$fullname} (depuis page contact)";
-
-    Mail::to('costantiniwanda@gmail.com')->send(new ContactMessage($subject, $data, 'emails.contact_page'));
-    Mail::to($data['email'])->send(new ContactMessage(
+// costantiniwanda
+    // Envoi de mail
+    Mail::to('adiop6225@gmail.com')->send(new ContactMessage("Nouveau message de $fullname", $data, 'emails.contact_page'));
+     Mail::to($data['email'])->send(new ContactMessage(
         'Votre message a bien été envoyé',
-        $data,
-        'emails.confirmation_client'
+         $data,
+       'emails.confirmation_client'
     ));
 
-   
-
-     return response()->json(['status' => 'ok']);
-   
+    return response()->json(['status' => 'ok']);
 }
-
-
-
 
 }
 

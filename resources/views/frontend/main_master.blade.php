@@ -29,6 +29,8 @@
 
     <link rel="stylesheet" href=" {{asset('frontend/assets/css/main.css ')}} ">
     <link rel="stylesheet" href=" {{asset('frontend/assets/css/responsive.css ')}} ">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <style>
     .embed-responsive {
@@ -174,11 +176,15 @@
 <body>
 
     <!-- Preloader Area Start -->
-    <div class="preloader">
+    {{-- <div class="preloader">
         <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
             <path id="preloaderSvg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
         </svg>
 
+        <div class="preloader-heading">
+            <div class="load-text">
+                <span>W</span>
+                <span>a</span>
         <div class="preloader-heading">
             <div class="load-text">
                 <span>W</span>
@@ -195,7 +201,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Preloader Area End -->
 
 
@@ -380,6 +386,10 @@
         $(this).addClass('active');
     });
 </script>
+
+
+
+
 
 <!-- SweetAlert2 CDN -->
 @stack('scripts')
