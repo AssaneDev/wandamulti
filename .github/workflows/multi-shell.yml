@@ -1,7 +1,8 @@
 name: Multi-shell demo
+
 on: [push]
 
-jobs: 
+jobs:
   shell-test:
     runs-on: ubuntu-latest
 
@@ -9,19 +10,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-        # etape 1
+      # Étape 1 : Bash
       - name: Bash part
         run: |
-         echo "APP_NAME=CaverneApp" >> GITHUB_ENV
-         echo "::group::Affichage Bash"
-         echo "Nom de l'application : $APP_NAME"
-         echo "::endgroup::"
-         shell: bash
+          echo "APP_NAME=LaravelApp" >> $GITHUB_ENV
+          echo "::group::Affichage Bash"
+          echo "Nom de l’application : $APP_NAME"
+          echo "::endgroup::"
+        shell: bash
 
-         # Eteape2
-      - name: python part
+      # Étape 2 : Python
+      - name: Python part
         run: |
-         import os
-         print("Nom de l'application ", os.getenv("$app_env"))
-         shell: python
+          import os
+          print("Nom de l’application :", os.getenv("APP_NAME"))
+        shell: python
+
         
