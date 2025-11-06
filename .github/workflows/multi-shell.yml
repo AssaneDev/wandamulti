@@ -1,0 +1,27 @@
+name: Multi-shell demo
+on: [push]
+
+jobs: 
+  shell-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: checkout/@v4
+
+        # etape 1
+      - name: Bash part
+        run: |
+         echo "APP_NAME=CaverneApp" >> GITHUB_ENV
+         echo "::group::Affichage Bash"
+         echo "Nom de l'application : $APP_NAME"
+         echo "::endgroup::"
+         shell: bash
+
+         # Eteape2
+      - name: python part
+        run: |
+         import os
+         print("Nom de l'application ", os.getenv("$app_env"))
+         shell: python
+        
